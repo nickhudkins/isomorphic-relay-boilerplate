@@ -1,0 +1,6 @@
+{
+  "backendAddress": "http://localhost:4444",
+  "frontendAddress": "http://localhost:8888",
+  "graphQLPath": "/graphql",
+  "port": 8080
+}
