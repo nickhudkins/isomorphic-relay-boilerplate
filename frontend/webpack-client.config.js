@@ -12,15 +12,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
-      },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
+      { test: /\.json$/, loader: 'json' },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract(
@@ -28,10 +21,12 @@ module.exports = {
           ['css?modules&importLoaders=1&localIdentName=[local]-[hash:base64]', 'postcss']
         ),
       },
-      {
-        test: /\.svg$/,
-        loader: 'url?limit=4096&mimetype=image/svg+xml',
-      },
+      { test: /\.eot$/, loader: 'url?limit=8192&mimetype=application/vnd.ms-fontobject' },
+      { test: /\.jpg$/, loader: 'url?limit=8192&mimetype=image/jpeg' },
+      { test: /\.png$/, loader: 'url?limit=8192&mimetype=image/png' },
+      { test: /\.svg$/, loader: 'url?limit=8192&mimetype=image/svg+xml' },
+      { test: /\.ttf$/, loader: 'url?limit=8192&mimetype=application/font-sfnt' },
+      { test: /\.woff$/, loader: 'url?limit=8192&mimetype=application/font-woff' },
     ],
   },
   output: {
@@ -69,6 +64,7 @@ module.exports = {
     alias: {
       'shared/components': 'components',
       'shared/styles': 'styles',
+      'shared/utils': 'utils',
     },
     modulesDirectories: ['shared', 'node_modules'],
   },

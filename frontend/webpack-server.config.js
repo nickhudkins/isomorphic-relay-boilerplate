@@ -5,7 +5,7 @@ module.exports = {
   entry: './routes',
   externals: [
     (context, request, callback) => {
-      callback(null, !/^((|.|..|shared)\/|-!)/.test(request));
+      callback(null, !/^((|.|..|shared)\/|!|-!)/.test(request));
     },
   ],
   module: {
@@ -39,6 +39,7 @@ module.exports = {
     alias: {
       'shared/components': 'components',
       'shared/styles': 'styles',
+      'shared/utils': 'utils',
     },
     modulesDirectories: ['shared', 'node_modules'],
   },

@@ -5,7 +5,7 @@ import Relay from 'react-relay';
 import { match } from 'react-router';
 
 import config from '../../../config.json';
-import PageView from '../views/PageView';
+import Page from '../components/Page';
 import routes from '../../routes';
 
 Relay.injectNetworkLayer(new Relay.DefaultNetworkLayer(config.graphQLAddress));
@@ -28,7 +28,7 @@ export default (req, res, next) => {
         <IsomorphicRelayRouter.RouterContext {...props} />
       );
       res.send(`<!DOCTYPE html>\n${ReactDOMServer.renderToStaticMarkup(
-        <PageView
+        <Page
           cssUri={cssUri}
           data={data}
           jsUri={jsUri}

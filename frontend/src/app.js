@@ -1,4 +1,4 @@
-import { browserHistory } from 'react-router';
+import history from 'shared/utils/history';
 import IsomorphicRelay from 'isomorphic-relay';
 import IsomorphicRouter from 'isomorphic-relay-router';
 import React from 'react';
@@ -16,7 +16,7 @@ function render() {
   const routes = require('./routes').default;
 
   ReactDOM.render(
-    <IsomorphicRouter.Router routes={routes} history={browserHistory} />,
+    <IsomorphicRouter.Router routes={routes} history={history} />,
     rootElement
   );
 }

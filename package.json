@@ -23,7 +23,7 @@
     "build-frontend": "cd frontend && npm run build",
     "build-frontend-dev": "cd frontend && npm run build-dev",
     "build-frontend-client": "cd frontend && npm run build-client",
-    "build-frontend-server": "cd frontend && npm run build-server",
+    "build-frontend-server": "cd frontend && NODE_ENV=production npm run build-server",
     "build-proxy": "cd proxy && npm run build",
     "lint": "eslint backend/scripts backend/src frontend/scripts frontend/src proxy/src",
     "postinstall": "cd backend && npm install && cd ../frontend && npm install && cd ../proxy && npm install",
