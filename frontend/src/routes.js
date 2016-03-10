@@ -1,3 +1,5 @@
+import React from 'react';
+import { createRoutes, IndexRoute, Route } from 'react-router';
 import Relay from 'react-relay';
 
 import TodoApp from './screens/TodoApp';
@@ -11,23 +13,9 @@ const queries = {
   viewer: () => Relay.QL`query { viewer }`,
 };
 
-export default [
-  {
-    queries,
-    path: '/',
-    component: TodoApp,
-    indexRoute: {
-      prepareParams,
-      queries,
-      component: TodoList,
-    },
-    childRoutes: [
-      {
-        prepareParams,
-        queries,
-        path: ':status',
-        component: TodoList,
-      },
-    ],
-  },
-];
+export default createRoutes(
+  <Route path="/" component={TodoApp} queries={queries}>
+    <IndexRoute component={TodoList} prepareParams={prepareParams} queries={queries} />
+    <Route path=":status" component={TodoList} prepareParams={prepareParams} queries={queries} />
+  </Route>
+);
