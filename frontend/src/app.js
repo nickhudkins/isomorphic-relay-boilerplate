@@ -15,7 +15,7 @@ const createNetworkLayer = () => {
   return new RelayNetworkLayer([
     urlMiddleware({
       url: `${process.env.APP_HOST}/graphql`,
-      batchUrl: `${process.env.APP_HOST || 'http://localhost:8080'}/graphql/batch`,
+      batchUrl: `${process.env.APP_HOST || 'http://localhost:8080/graphql/batch'}`,
     }),
   ]);
 };

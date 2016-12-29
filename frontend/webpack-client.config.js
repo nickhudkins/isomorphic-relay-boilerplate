@@ -48,8 +48,9 @@ module.exports = {
   ] : [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('production')
-      }
+        NODE_ENV: JSON.stringify('production'),
+        APP_HOST: JSON.stringify(process.env.APP_HOST),
+      },
     }),
     new webpack.optimize.UglifyJsPlugin(),
     function writeAssetList() {
