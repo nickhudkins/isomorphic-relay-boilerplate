@@ -15,7 +15,7 @@ app.use(config.graphQLPathBatch, proxy(config.backendAddress));
 app.use(proxy(config.frontendAddress));
 app.use(errorHandler);
 
-const server = app.listen(config.port, err => {
+const server = app.listen(process.env.PORT || config.port, err => {
   if (err) {
     logger.error(err);
   } else {
