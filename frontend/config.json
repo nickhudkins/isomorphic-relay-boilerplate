@@ -1,5 +1,5 @@
 {
-  "graphQLAddress": "http://localhost:8080/graphql",
-  "graphQLBatchAddress": "http://localhost:8080/graphql",
+  "graphQLAddress": "/graphql",
+  "graphQLBatchAddress": "/graphql/batch",
   "port": 8888
 }

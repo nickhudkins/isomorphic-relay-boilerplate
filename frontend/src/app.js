@@ -14,7 +14,6 @@ const environment = new Relay.Environment();
 const createNetworkLayer = () => {
   return new RelayNetworkLayer([
     urlMiddleware({
-
     })
   ])
 }
