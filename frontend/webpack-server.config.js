@@ -19,6 +19,12 @@ module.exports = {
         test: /\.json$/,
         loader: 'json',
       },
+      { test: /\.eot$/, loader: 'url?limit=8192&mimetype=application/vnd.ms-fontobject&emitFile=false' },
+      { test: /\.jpg$/, loader: 'url?limit=8192&mimetype=image/jpeg&emitFile=false' },
+      { test: /\.png$/, loader: 'url?limit=8192&mimetype=image/png&emitFile=false' },
+      { test: /\.svg$/, loader: 'url?limit=8192&mimetype=image/svg+xml&emitFile=false' },
+      { test: /\.ttf$/, loader: 'url?limit=8192&mimetype=application/font-sfnt&emitFile=false' },
+      { test: /\.woff$/, loader: 'url?limit=8192&mimetype=application/font-woff&emitFile=false' },
       {
         test: /\.css$/,
         loaders:
@@ -38,6 +44,8 @@ module.exports = {
   resolve: {
     alias: {
       'shared/components': 'components',
+      'shared/containers': 'containers',
+      'shared/routes': 'routes',
       'shared/styles': 'styles',
       'shared/utils': 'utils',
     },

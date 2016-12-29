@@ -2,5 +2,6 @@
   "backendAddress": "http://localhost:4444",
   "frontendAddress": "http://localhost:8888",
   "graphQLPath": "/graphql",
+  "graphQLPathBatch": "/graphql/batch",
   "port": 8080
 }

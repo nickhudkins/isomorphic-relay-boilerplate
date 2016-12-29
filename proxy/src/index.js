@@ -11,6 +11,7 @@ const app = express();
 
 app.use(compression({ level: 2 }));
 app.use(config.graphQLPath, proxy(config.backendAddress));
+app.use(config.graphQLPathBatch, proxy(config.backendAddress));
 app.use(proxy(config.frontendAddress));
 app.use(errorHandler);
 

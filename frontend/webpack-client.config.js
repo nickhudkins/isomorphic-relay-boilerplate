@@ -46,6 +46,11 @@ module.exports = {
   ].concat(development ? [
     new webpack.HotModuleReplacementPlugin(),
   ] : [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.UglifyJsPlugin(),
     function writeAssetList() {
       this.plugin('done', stats => {
@@ -63,6 +68,8 @@ module.exports = {
   resolve: {
     alias: {
       'shared/components': 'components',
+      'shared/containers': 'containers',
+      'shared/routes': 'routes',
       'shared/styles': 'styles',
       'shared/utils': 'utils',
     },

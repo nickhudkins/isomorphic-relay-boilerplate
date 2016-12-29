@@ -6,6 +6,6 @@ export default function errorHandler(err, {}, res, {}) {
   if (res.headersSent) {
     res.end();
   } else {
-    res.send(500, 'Internal server error.');
+    res.status(500).send('Internal server error.');
   }
 }

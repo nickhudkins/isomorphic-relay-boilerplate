@@ -2,33 +2,34 @@
   "private": true,
   "dependencies": {
     "express": "^4.13.4",
-    "winston": "^2.2.0"
-  },
-  "devDependencies": {
+    "winston": "^2.2.0",
     "babel-cli": "^6.6.4",
     "babel-eslint": "^5.0.0",
     "babel-polyfill": "^6.6.1",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-stage-0": "^6.5.0",
-    "eslint": "~2.2.0",
-    "eslint-config-airbnb": "^6.0.2",
-    "eslint-plugin-react": "^4.2.1"
+    "chalkdust": "1.1.0"
   },
   "engines": {
-    "node": "^4.2.4",
+    "node": "^6.9.0",
     "npm": "^3.7.5"
   },
   "scripts": {
-    "build-backend": "cd backend && npm run build",
-    "build-frontend": "cd frontend && npm run build",
-    "build-frontend-dev": "cd frontend && npm run build-dev",
-    "build-frontend-client": "cd frontend && npm run build-client",
-    "build-frontend-server": "cd frontend && NODE_ENV=production npm run build-server",
-    "build-proxy": "cd proxy && npm run build",
+    "backend:build": "cd backend && npm run build",
+    "backend:dev": "cd backend && npm run dev",
+    "backend:update-schema": "cd backend && npm run update-schema",
+    "frontend:build": "cd frontend && npm run build",
+    "frontend:dev": "cd frontend && npm run dev",
+    "proxy:build": "cd proxy && npm run build",
     "lint": "eslint backend/scripts backend/src frontend/scripts frontend/src proxy/src",
     "postinstall": "cd backend && npm install && cd ../frontend && npm install && cd ../proxy && npm install",
     "start": "NODE_ENV=production node server",
-    "start-dev": "NODE_ENV=development node server",
-    "update-schema": "cd backend && npm run update-schema"
-  }
+    "build": "npm run backend:build && npm run frontend:build && npm run proxy:build",
+    "start:dev": "DISABLE_SSR=true NODE_ENV=development node server"
+  },
+  "name": "isomorphic-relay-boilerplate",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:nickhudkins/isomorphic-relay-boilerplate.git",
+  "author": "Nick Hudkins <nick@nickhudkins.com>"
 }

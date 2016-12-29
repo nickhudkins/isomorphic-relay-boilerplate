@@ -2,8 +2,8 @@ import React from 'react';
 import { createRoutes, IndexRoute, Route } from 'react-router';
 import Relay from 'react-relay';
 
-import TodoApp from './screens/TodoApp';
-import TodoList from './screens/TodoApp/screens/TodoList';
+import AppContainer from 'shared/containers/AppContainer';
+import SectionOneRoutes from 'shared/routes/SectionOne';
 
 const prepareParams = ({ status }) => ({
   status: ['active', 'completed'].includes(status) ? status : 'any',
@@ -14,8 +14,10 @@ const queries = {
 };
 
 export default createRoutes(
-  <Route path="/" component={TodoApp} queries={queries}>
-    <IndexRoute component={TodoList} prepareParams={prepareParams} queries={queries} />
-    <Route path=":status" component={TodoList} prepareParams={prepareParams} queries={queries} />
+  <Route path="/"
+    component={ AppContainer }
+    queries={ queries }
+  >
+    { SectionOneRoutes }
   </Route>
 );

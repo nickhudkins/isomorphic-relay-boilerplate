@@ -1,3 +1,4 @@
+import 'isomorphic-fetch';
 import 'babel-polyfill';
 import express from 'express';
 import path from 'path';
