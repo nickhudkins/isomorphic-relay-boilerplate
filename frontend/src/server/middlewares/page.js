@@ -14,13 +14,13 @@ const networkLayer = createNetworkLayer();
 relayEnvironment.injectNetworkLayer(networkLayer);
 
 export default (req, res, next) => {
+  let cssUri;
+  let jsUri;
   const { DISABLE_SSR } = process.env;
   if (!DISABLE_SSR) {
     const routes = require('../../routes').default;
     match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
       function render({ data, props }) {
-        let cssUri;
-        let jsUri;
         if (process.env.NODE_ENV === 'production') {
           const assets = require('../../../assets.json');
           cssUri = `/assets/${assets.app.find(path => path.endsWith('.css'))}`;
@@ -54,10 +54,14 @@ export default (req, res, next) => {
       }
     });
   } else {
+    const assets = require('../../../assets.json');
+    cssUri = `/assets/${assets.app.find(path => path.endsWith('.css'))}`;
+    jsUri = `/assets/${assets.app.find(path => path.endsWith('.js'))}`;
     res.send(`<!DOCTYPE html>\n${ReactDOMServer.renderToStaticMarkup(
       <Page
+        cssUri={cssUri}
         data={[]}
-        jsUri={'/assets/app.js'}
+        jsUri={jsUri}
         markup={''}
       />
     )}`);
